@@ -1,0 +1,55 @@
+<layout>
+
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="br.com.ramon.cardoso.marvel.network.NoNetworkFragment" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        tools:context="br.com.ramon.cardoso.marvel.network.NoNetworkFragment">
+
+        <TextView
+            android:id="@+id/noConnectionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/no_connection"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/noConnectionAnimation" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/noConnectionAnimation"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="no-connection.json"
+            app:lottie_loop="false" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/tryAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickHandler}"
+            android:text="@string/try_again"
+            app:layout_constraintBottom_toBottomOf="@id/noConnectionAnimation"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

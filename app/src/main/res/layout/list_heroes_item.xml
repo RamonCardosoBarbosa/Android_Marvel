@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="hero"
+            type="br.com.ramon.cardoso.marvel.shared.SuperHero" />
+
+        <variable
+            name="handler"
+            type="br.com.ramon.cardoso.marvel.listheroes.ListHeroesAdapter.ListAdapterHolder" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> handler.onHeroClicked(hero)}"
+        android:padding="@dimen/activity_margin">
+
+        <ImageView
+            android:id="@+id/listHeroImage"
+            android:layout_width="@dimen/thumbnail"
+            android:layout_height="@dimen/thumbnail"
+            android:layout_marginEnd="@dimen/activity_margin"
+            android:clickable="false"
+            android:contentDescription="@string/list_hero_image_content_description"
+            android:src="@drawable/ic_action_person"
+            bind:url="@{hero.thumbnail.url}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/heroName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/heroName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:clickable="false"
+            android:text='@{hero.name}'
+            android:textColor="@color/hero_list_name"
+            android:textSize="@dimen/hero_list_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/listHeroImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

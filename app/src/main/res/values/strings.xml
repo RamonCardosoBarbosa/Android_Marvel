@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Marvel</string>
+    <string name="developed_by">Desenvolvido por Ramon Cardoso</string>
+    <string name="no_connection">Sem conexão com a internet</string>
+    <string name="try_again">Tentar novamente</string>
+
+    <string name="base_url">https://gateway.marvel.com:443/</string>
+    <string name="api_key">3233bf711c30e18d6482d0d40384dc84</string>
+    <string name="api_hash">9a680942beb34d31abe982962676368a</string>
+    <string name="api_timestamp">1</string>
+
+    <string name="list_hero_image_content_description">Hero profile image</string>
+    <string name="menu_action_search">search</string>
+    <string name="menu_action_search_hint">Digite o nome do personagem</string>
+    <string name="list_heroes_Activity_label">Personagens</string>
+    <string name="detail_hero_Activity_label">Personagem</string>
+    <string name="indicate_empty_heroes_hint">Nenhum personagem encontrado com o nome informado.</string>
+    <string name="indicate_comic_heroes_hint">Este personagem não participou de quadrinhos.</string>
+    <string name="indicate_search_view_hint">Utilize a barra de pesquisa a cima para pesquisar os personagens.</string>
+    <string name="intent_hero_key">hero_key</string>
+    <string name="intelligence">Inteligência</string>
+    <string name="power">Força</string>
+    <string name="combat">Combate</string>
+    <string name="durability">Resitência</string>
+    <string name="speed">Velocidade</string>
+    <string name="height">Altura</string>
+    <string name="weight">Peso</string>
+    <string name="race">Raça</string>
+    <string name="gender">Sexo</string>
+    <string name="work">Trabalho</string>
+    <string name="base">Base</string>
+</resources>

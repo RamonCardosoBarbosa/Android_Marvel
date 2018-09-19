@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="br.com.ramon.cardoso.marvel.splashscreen.SplashActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <LinearLayout
+            android:id="@+id/indicateSearchViewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            android:gravity="center"
+            android:padding="30dp"
+            android:background="@android:color/white">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/indicateSearchViewAnimation"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:layout_constraintBottom_toBottomOf="@id/toolbar"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="indication-top.json"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:id="@+id/indicateSearchViewText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:layout_margin="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                android:text="@string/indicate_search_view_hint"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/emptyHeroesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            android:gravity="center"
+            android:padding="30dp"
+            android:background="@android:color/white"
+            android:visibility="gone">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/emptyHeroesAnimation"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:layout_constraintBottom_toBottomOf="@id/toolbar"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="empty-animation.json"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:id="@+id/emptyHeroesText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:layout_margin="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                android:text="@string/indicate_empty_heroes_hint"/>
+        </LinearLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loadHeroesAnimation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="load-list-animation.json"
+            app:lottie_loop="true" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listHeroesRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

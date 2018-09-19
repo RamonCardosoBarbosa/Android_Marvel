@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "br.com.ramon.cardoso.marvel"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+
+    // Dagger dependencies
+    api 'com.google.dagger:dagger:2.17'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.17'
+
+    //Animations
+    implementation "com.airbnb.android:lottie:2.6.1"
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+
+    //Retrofit/OkHttp/Gson
+    api 'com.squareup.retrofit2:retrofit:2.4.0'
+    api 'com.squareup.okhttp3:okhttp:3.10.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    api 'com.squareup.okio:okio:1.15.0'
+    api 'com.google.code.gson:gson:2.8.0'
+    api 'com.squareup.retrofit2:converter-gson:2.0.1'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+
+    //Guava
+    api 'com.google.guava:guava:20.0'
+
+    // Dependencies for local unit tests
+    api "com.android.support.test.espresso:espresso-idling-resource:3.0.2"
+    testImplementation "junit:junit:4.12"
+    testImplementation "org.mockito:mockito-all:1.10.19"
+    testImplementation "org.hamcrest:hamcrest-all:1.3"
+
+    // Dependencies for Android unit tests
+    androidTestImplementation "junit:junit:4.12"
+    androidTestImplementation "org.mockito:mockito-core:1.10.19"
+    androidTestImplementation "com.google.dexmaker:dexmaker:1.2"
+    androidTestImplementation "com.google.dexmaker:dexmaker-mockito:1.2"
+
+    // Resolve conflicts between main and test APK:
+    androidTestImplementation "com.android.support:support-v4:27.1.1"
+    androidTestImplementation "com.android.support:appcompat-v7:27.1.1"
+    androidTestImplementation "com.android.support:design:27.1.1"
+    androidTestImplementation "com.android.support:support-annotations:27.1.1"
+    androidTestImplementation "com.android.support.constraint:constraint-layout:1.1.3"
+    api 'org.jetbrains:annotations-java5:15.0'
+
+}

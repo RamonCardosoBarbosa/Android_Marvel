@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="hero"
+            type="br.com.ramon.cardoso.marvel.shared.SuperHero" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Light"
+                app:title='@{hero == null ? "Personagem" : hero.name}' />
+        </android.support.design.widget.AppBarLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loadAnimation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="load-list-animation.json"
+            app:lottie_loop="true" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/contentScrool"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:visibility="gone">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/rootLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context="br.com.ramon.cardoso.marvel.splashscreen.SplashActivity">
+
+                <LinearLayout
+                    android:id="@+id/headerDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/black"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:id="@+id/listHeroImage"
+                        android:layout_width="@dimen/thumbnail_detail"
+                        android:layout_height="@dimen/thumbnail_detail"
+                        android:contentDescription="@string/list_hero_image_content_description"
+                        bind:url="@{hero.thumbnail.url}" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/row_padding"
+                        android:text='@{hero.name}'
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/hero_list_name"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/row_padding"
+                        android:gravity="center"
+                        android:maxLines="10"
+                        android:text="@{hero.description}"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/hero_list_producer" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/emptyComicLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/headerDetail"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:gravity="center"
+                    android:padding="30dp"
+                    android:background="@android:color/white"
+                    android:visibility="gone">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/emptyComicAnimation"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+                        app:layout_constraintEnd_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        app:lottie_autoPlay="true"
+                        app:lottie_fileName="empty-animation.json"
+                        app:lottie_loop="true" />
+
+                    <TextView
+                        android:id="@+id/emptyHeroesText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:gravity="center"
+                        android:layout_margin="40dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                        android:text="@string/indicate_comic_heroes_hint"/>
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/comicRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/headerDetail" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>
