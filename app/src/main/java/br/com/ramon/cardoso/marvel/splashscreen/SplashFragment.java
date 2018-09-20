@@ -39,6 +39,8 @@ public class SplashFragment extends AbstractFragment<Splash.Presenter> implement
             public void run() {
                 if (mPresenter.isConnected())
                     startActivity(new Intent(getActivity(), ListHeroesActivity.class));
+                if (getActivity() != null)
+                    getActivity().finish();
                 else
                     showNetworkError();
             }

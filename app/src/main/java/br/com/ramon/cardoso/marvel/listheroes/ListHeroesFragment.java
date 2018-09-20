@@ -152,6 +152,8 @@ public class ListHeroesFragment extends AbstractFragment<ListHeroes.Presenter> i
 
     @Override
     public boolean onQueryTextChange(String query) {
+        if (query.length() >= 3)
+            mPresenter.loadHeroes(query);
         return true;
     }
 
